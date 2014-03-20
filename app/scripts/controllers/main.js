@@ -19,7 +19,6 @@ app.factory('seatService', function($http) {
 app.directive('seats', ['$rootScope', function ($rootScope) {
 
   var seatsAsync = function (group, startRow, endRow, scope, element) {
-    console.log('--- seatsAsync ---');
     $rootScope.$on('seatsReady', function (event, message) {
       console.log('broadcast caught');
       drawSeats(message, group, startRow, endRow, scope, element);
@@ -27,7 +26,6 @@ app.directive('seats', ['$rootScope', function ($rootScope) {
   };
 
   var drawSeats = function (seats, group, startRow, endRow, scope, element) {
-    console.log('--- drawSeats ---');
     var seatsPerRow;
     switch (group) {
       case 'a':
@@ -49,7 +47,7 @@ app.directive('seats', ['$rootScope', function ($rootScope) {
       scope.markup += '" ' +
                 'row-group="' + group + '" ' +
                 'row-nr="' + row + '">';
-      for (var seat = 1; seat <= seatsPerRow; seat++) {
+      for (var seat = seatsPerRow; seat > 0; seat--) {
         var seatIdent = group.toUpperCase() + row + '-' + seat;
         var seatObj = seats[seatIdent];
         if (seatObj) {
@@ -73,11 +71,12 @@ app.directive('seats', ['$rootScope', function ($rootScope) {
       }
       scope.markup += '</div><!-- row -->';
     }
+    scope.markup += '<div class="clear"></div>';
     element.html(scope.markup);
   };
 
   return {
-    restrict: 'E',
+    restrict: 'A',
     scope: {},
     template: '',
     link: function (scope, element, attrs) {

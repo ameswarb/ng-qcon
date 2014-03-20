@@ -20,12 +20,33 @@ body {
     color: $foreground;
 }
 
+div[seats=""] {
+    font-size: 0px;
+    display: inline-block;
+}
+
+.c1 {
+    padding-left: 84px;
+}
+
+.b3 {
+    padding-left: 12px;
+}
+
+.a3 {
+    padding-left: 44px;
+}
+
 .clear {
     clear: both;
 }
 
 .seat-chart {
     line-height: 5px;
+
+    br {
+        margin-bottom: 4px;
+    }
 
     .seat-row {
         float: left;
