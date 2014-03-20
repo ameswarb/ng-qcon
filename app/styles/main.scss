@@ -1,0 +1,50 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+@import 'sass-bootstrap/lib/bootstrap';
+
+$background: #1d1f21;
+$foreground: #c5c8c6;
+$currentLine: #282a2e;
+$selection: #373b41;
+$comment: #969896;
+$red: #cc6666;
+$orange: #de935f;
+$yellow: #f0c674;
+$green: #b5bd68;
+$aqua: #8abeb7;
+$blue: #81a2be;
+$purple: #b294bb;
+
+body {
+    background: $background;
+    color: $foreground;
+}
+
+.clear {
+    clear: both;
+}
+
+.seat-chart {
+    line-height: 5px;
+
+    .seat-row {
+        float: left;
+    }
+
+    .seat-row.aisle {
+        margin-right: 4px;
+    }
+
+    .seat {
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        margin: 2px 1px;
+        background: $comment;
+        //opacity: 0.6;
+        //filter:alpha(opacity=60);
+    }
+
+    .seat.taken { background: $foreground; }
+    .seat.blank { background: transparent; }
+}
