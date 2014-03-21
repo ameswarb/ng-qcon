@@ -1,17 +1,24 @@
-<div class="header">
+<!--<div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Home</a></li>
     <li><a ng-href="#">About</a></li>
     <li><a ng-href="#">Contact</a></li>
   </ul>
   <h3 class="text-muted">ng qcon</h3>
-</div>
+</div> -->
 
-<div class="seats">
-  <div class="group c">
-    {{butt}}
-  </div>
-</div><!-- .seats -->
+<div class="seat-chart">
+  <div seats group="c" start-row="11" end-row="64" class="c1"></div>
+  <br class="clear"/>
+  <div seats group="b" start-row="1" end-row="10"></div>
+  <div seats group="b" start-row="11" end-row="46"></div>
+  <div seats group="b" start-row="49" end-row="74" class="b3"></div>
+  <br class="clear"/>
+  <div seats group="a" start-row="1" end-row="10"></div>
+  <div seats group="a" start-row="11" end-row="42"></div>
+  <div seats group="a" start-row="49" end-row="74" class="a3"></div>
+  <br class="clear"/>
+</div>
 
 <div class="footer">
   <p>♥ from the Yeoman team</p>
