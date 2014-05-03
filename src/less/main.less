@@ -1,0 +1,122 @@
+//@import (less) "../../vendor/bootstrap/less/bootstrap.less";
+@import "theme.less";
+
+@background: #1d1f21;
+@foreground: #c5c8c6;
+@currentLine: #282a2e;
+@selection: #373b41;
+@comment: #969896;
+@red: #cc6666;
+@orange: #de935f;
+@yellow: #f0c674;
+@green: #b5bd68;
+@aqua: #8abeb7;
+@blue: #81a2be;
+@purple: #b294bb;
+
+body {
+    background: @background;
+    color: @foreground;
+}
+
+div[seats=""] {
+    display: inline-block;
+}
+
+.c1 {
+    padding-left: 84px;
+}
+
+.b3 {
+    padding-left: 12px;
+}
+
+.a3 {
+    padding-left: 44px;
+}
+
+.clear {
+    clear: both;
+}
+
+.seat-chart {
+    width: 600px;
+    margin: 0 auto;
+    line-height: 5px;
+
+    br {
+        margin-bottom: 4px;
+    }
+
+    .popover {
+        line-height: 18px;
+    }
+
+    .seat-row {
+        float: left;
+    }
+
+    .seat-row.aisle {
+        margin-right: 4px;
+    }
+
+    .seat {
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        margin: 2px 1px;
+        background: @selection;
+        //opacity: 0.6;
+        //filter:alpha(opacity=60);
+    }
+
+    .seat.taken { background: @foreground; }
+    .seat.unavailable { background: @red; }
+    .seat.blank { background: transparent; }
+
+    @-webkit-keyframes pulse {
+      0% {background-color: #FF0092;}
+      25% {background-color: #FFCA1B;}
+      50% {background-color: #B6FF00;}
+      75% {background-color: #228DFF;}
+      100% {background-color: #BA01FF;}
+    }
+    .seat.highlighted {
+        background-color: #ff0;
+        -webkit-animation: pulse 1.5s infinite alternate;
+    }
+}
+
+.seat-chart:hover {
+    .seat {
+        opacity: 0.4;
+        filter:alpha(opacity=40);
+    }
+
+    .seat.focus {
+        opacity: 1.0;
+        filter:alpha(opacity=100);
+    }
+
+    .seat.focus.unavailable {
+        opacity: 0.4;
+        filter:alpha(opacity=40);
+    }
+
+    .seat-row:hover {
+        .seat {
+            opacity: 1.0;
+            filter:alpha(opacity=100);
+        }
+
+        .seat:hover {
+            opacity: 1.0;
+            filter:alpha(opacity=100);
+        }
+
+        .seat.unavailable {
+            opacity: 0.4;
+            filter:alpha(opacity=40);
+        }
+    }
+}

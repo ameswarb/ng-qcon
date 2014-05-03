@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title ng-bind="pageTitle"></title>
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/qcon-1.0.0.css" />
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="/vendor/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="/vendor/lodash/dist/lodash.js"></script>
+    <script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/src/app/app.js"></script>
+    <script type="text/javascript" src="/src/app/seats/seats.js"></script>
+    <script type="text/javascript" src="/templates-common.js"></script>
+    <script type="text/javascript" src="/templates-app.js"></script>
+  </head>
+  <body ng-app="qcon">
+    <div class="container qcon-app" ng-controller="AppCtrl">
+      <div class="seat-chart">
+        <div seats group="c" start-row="11" end-row="64" class="c1"></div>
+        <br class="clear"/>
+        <div seats group="b" start-row="1" end-row="10"></div>
+        <div seats group="b" start-row="11" end-row="46"></div>
+        <div seats group="b" start-row="49" end-row="74" class="b3"></div>
+        <br class="clear"/>
+        <div seats group="a" start-row="1" end-row="10"></div>
+        <div seats group="a" start-row="11" end-row="42"></div>
+        <div seats group="a" start-row="49" end-row="74" class="a3"></div>
+        <br class="clear"/>
+      </div>
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Seat</th>
+            <th>Username</th>
+            <th>Clan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <input type="text" ng-model="userFilter" />
+          <select ng-model="usersPerPage">
+            <option value="20" selected>20</option>
+            <option value="40">40</option>
+            <option value="60">60</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+          </select>
+          <tr ng-repeat="seat in (filteredItems = (seats | filter: userFilter | orderBy: seat.username | limitTo: usersPerPage))">
+            <td>{{seat.seat}}</td>
+            <td>{{seat.username}}</td>
+            <td>{{seat.clan}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+  </body>
+</html>
