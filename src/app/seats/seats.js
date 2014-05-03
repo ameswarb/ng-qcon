@@ -7,7 +7,7 @@ angular.module( 'qcon.seats', [
 .factory('seatService', function($http) {
   var seatService = {
     async: function () {
-      var jsonURL = 'http://i.alexmeswarb.com/test.json';
+      var jsonURL = 'http://localhost:5000/seat';
       var promise = $http.get(jsonURL).then(function (response) {
         return response.data;
       });

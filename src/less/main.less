@@ -1,5 +1,6 @@
 //@import (less) "../../vendor/bootstrap/less/bootstrap.less";
 @import "theme.less";
+@import "../../vendor/fontawesome/less/font-awesome.less";
 
 @background: #1d1f21;
 @foreground: #c5c8c6;
@@ -21,6 +22,7 @@ body {
 
 div[seats=""] {
     display: inline-block;
+    margin: 5px 0;
 }
 
 .c1 {
@@ -37,6 +39,18 @@ div[seats=""] {
 
 .clear {
     clear: both;
+}
+
+.table-filter {
+    width: 90%;
+    margin: 10px 5%;
+}
+
+.huge-preloader {
+    display: block;
+    font-size: 288px;
+    text-align: center;
+    margin: 40px auto;
 }
 
 .seat-chart {

@@ -66,6 +66,12 @@ module.exports = {
     ],
     css: [],
     assets: [],
-    fonts: []
+    fonts: [
+      'vendor/fontawesome/fonts/FontAwesome.otf',
+      'vendor/fontawesome/fonts/fontawesome-webfont.svg',
+      'vendor/fontawesome/fonts/fontawesome-webfont.woff',
+      'vendor/fontawesome/fonts/fontawesome-webfont.eot',
+      'vendor/fontawesome/fonts/fontawesome-webfont.ttf',
+    ]
   },
 };

@@ -15,13 +15,13 @@ angular.module( 'qcon', [
 
 .controller( 'AppCtrl', function AppCtrl ($scope, $element, seatService) {
   seatService.async().then(function (d) {
-    $scope.data = d.seats;
-    $scope.seats = _.map(d.seats, function (value) {
+    $scope.data = d;
+    $scope.seats = _.map(d, function (value) {
       if (value.username || value.clan) {
         return value;
       }
     });
-    $scope.$broadcast('seatsReady', d.seats);
+    $scope.$broadcast('seatsReady', d);
   });
   $scope.userFilter = "";
   $scope.usersPerPage = 20;
